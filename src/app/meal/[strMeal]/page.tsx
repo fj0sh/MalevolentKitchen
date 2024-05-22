@@ -4,27 +4,32 @@ import { MealCard } from "@/components";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Meal from "@/constants";
 import Link from "next/link";
+import useMeal from "@/hooks/useMeal";
 
 const Mealid = ({ params }: { params: { strMeal: string } }) => {
   const [data, setData] = useState<any>({});
   const dets = data?.meals;
 
-  useEffect(() => {
-    const fetchDataName = async () => {
-      try {
-        const res = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/search.php?s=${params.strMeal}`
-        );
-        const jsondata = await res.json();
+  // useEffect(() => {
+  //   const fetchDataName = async () => {
+  //     try {
+  //       const res = await fetch(
+  //         `https://www.themealdb.com/api/json/v1/1/search.php?s=${params.strMeal}`
+  //       );
+  //       const jsondata = await res.json();
 
-        setData(jsondata);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  //       setData(jsondata);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
 
-    fetchDataName();
-  }, []);
+  //   fetchDataName();
+  // }, []);
+
+  // const { setInput, loading, mealData } = useMeal();
+
+  setData(params);
 
   return (
     <>

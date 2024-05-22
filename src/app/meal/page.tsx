@@ -4,32 +4,35 @@ import { Button, Cardsm, Loading } from "@/components";
 import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
 import Meal from "@/constants";
+import useMeal from "@/hooks/useMeal";
 
 const Meals = () => {
-  const [input, setinput] = useState("");
-  const [data, setData] = useState<any>({});
-  const [loading, setLoading] = useState(false);
+  // const [input, setinput] = useState("");
+  // const [data, setData] = useState<any>({});
+  // const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchDataName = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(
-          `https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`
-        );
-        const jsondata = await res.json();
-        setData(jsondata);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchDataName = async () => {
+  //     try {
+  //       setLoading(true);
+  //       const res = await fetch(
+  //         `https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`
+  //       );
+  //       const jsondata = await res.json();
+  //       setData(jsondata);
+  //     } catch (error) {
+  //       console.error(error);
+  //     } finally {
+  //       setTimeout(() => {
+  //         setLoading(false);
+  //       }, 1000);
+  //     }
+  //   };
 
-    fetchDataName();
-  }, [input]);
+  //   fetchDataName();
+  // }, [input]);
+
+  const { setInput, loading, mealData } = useMeal();
 
   return (
     <>
@@ -37,7 +40,7 @@ const Meals = () => {
         <input
           className="bg-slate-400 rounded-lg px-2"
           type="text"
-          onChange={(e) => setinput(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
         />
         <Button name="Random" className="p-1 rounded-md border border-2-" />
       </div>
@@ -46,7 +49,7 @@ const Meals = () => {
         {loading ? (
           <Loading count={25} />
         ) : (
-          data.meals?.map((meal: Meal) => (
+          mealData.meals?.map((meal: Meal) => (
             <Link key={meal.idMeal} href={`meal/${meal.strMeal}`}>
               <Cardsm>
                 <div className="flex">
