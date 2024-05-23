@@ -18,10 +18,12 @@ const Mealid = ({ params }: { params: { strMeal: string } }) => {
 
   return (
     <>
-      <Link href="/meal" className="border rounded-xl p-2 mx-3 mt-3">
-        Back
-      </Link>
-
+      <div>
+        <Link href="/meal" className="border rounded-xl p-2 mx-3 mt-3">
+          Back
+        </Link>
+      </div>
+      
       <div className="mx-[100px]">
         {meals?.map((meal: Meal) => {
           return (

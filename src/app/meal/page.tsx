@@ -20,7 +20,7 @@ const Meals = () => {
         <Button name="Random" className="p-1 rounded-md border border-2-" />
       </div>
 
-      <div className="grid grid-cols-4 gap-2 mx-[25px]">
+      <div className="grid grid-cols-4 gap-2 mx-[25px] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {loading ? (
           <Loading count={25} />
         ) : (
@@ -32,13 +32,16 @@ const Meals = () => {
                     <img
                       src={meal.strMealThumb}
                       alt="meal.jpg"
-                      className="w-[50px] h-[50px] rounded-full hover:w-[75px] hover:h-[75px] hover:ease-in duration-300  "
+                      className="w-[75px] h-[75px] rounded-full hover:w-[100px] hover:h-[100px] hover:ease-in duration-300 border border-black"
                     />
                   </div>
-                  <div className="truncate">
+
+                  <div className="truncate ml-[25px] text-lg ">
                     {meal.strMeal}
                     <br />
-                    {meal.strCategory}
+                    <span className="my-[10px] text-sm">
+                      {meal.strCategory}
+                    </span>
                   </div>
                 </div>
               </Cardsm>

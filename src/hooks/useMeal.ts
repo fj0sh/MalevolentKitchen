@@ -18,7 +18,7 @@ const [input, setInput] = useState<any>("a");
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 1000);
+        }, 500);
       }
     };
     fetchDataName();
