@@ -20,7 +20,7 @@ const Meals = () => {
         <Button name="Random" className="p-1 rounded-md border border-2-" />
       </div>
 
-      <div className="grid grid-cols-4 gap-2 mx-[25px] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-4 gap-2 mx-[25px] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 smartphone:grid-cols-1">
         {loading ? (
           <Loading count={25} />
         ) : (
