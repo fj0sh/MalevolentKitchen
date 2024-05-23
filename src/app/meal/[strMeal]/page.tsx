@@ -4,7 +4,6 @@ import { MealCard } from "@/components";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Meal } from "@/constants";
 import Link from "next/link";
-import useMeal from "@/hooks/useMeal";
 import useSelected from "@/hooks/useSelected";
 
 const Mealid = ({ params }: { params: { strMeal: string } }) => {
@@ -23,7 +22,7 @@ const Mealid = ({ params }: { params: { strMeal: string } }) => {
           Back
         </Link>
       </div>
-      
+
       <div className="mx-[100px]">
         {meals?.map((meal: Meal) => {
           return (

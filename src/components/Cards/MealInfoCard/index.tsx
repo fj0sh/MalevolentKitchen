@@ -1,5 +1,5 @@
 import React from "react";
-import Meal from "@/constants";
+import { Meal } from "@/constants";
 
 interface Props {
   children?: React.ReactNode;
