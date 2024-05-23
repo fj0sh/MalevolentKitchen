@@ -5,33 +5,16 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Meal } from "@/constants";
 import Link from "next/link";
 import useMeal from "@/hooks/useMeal";
+import useSelected from "@/hooks/useSelected";
 
 const Mealid = ({ params }: { params: { strMeal: string } }) => {
-  const [data, setData] = useState<any>({});
-  const dets = data?.meals;
-
-  // useEffect(() => {
-  //   const fetchDataName = async () => {
-  //     try {
-  //       const res = await fetch(
-  //         `https://www.themealdb.com/api/json/v1/1/search.php?s=${params.strMeal}`
-  //       );
-  //       const jsondata = await res.json();
-
-  //       setData(jsondata);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   fetchDataName();
-  // }, []);
-
-  const { setInput, mealData } = useMeal();
+  const { setSelectedMeal, selectedData } = useSelected();
 
   useEffect(() => {
-    console.log(mealData);
-  }, []);
+    setSelectedMeal(params.strMeal);
+  }, [params.strMeal, setSelectedMeal]);
+
+  const meals = selectedData?.meals;
 
   return (
     <>
@@ -40,7 +23,7 @@ const Mealid = ({ params }: { params: { strMeal: string } }) => {
       </Link>
 
       <div className="mx-[100px]">
-        {dets?.map((meal: Meal) => {
+        {meals?.map((meal: Meal) => {
           return (
             <div key={meal.idMeal} className="mt-[25px]">
               <MealCard
