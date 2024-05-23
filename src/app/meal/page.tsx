@@ -3,35 +3,10 @@
 import { Button, Cardsm, Loading } from "@/components";
 import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
-import Meal from "@/constants";
+import { Meal } from "@/constants";
 import useMeal from "@/hooks/useMeal";
 
 const Meals = () => {
-  // const [input, setinput] = useState("");
-  // const [data, setData] = useState<any>({});
-  // const [loading, setLoading] = useState(false);
-
-  // useEffect(() => {
-  //   const fetchDataName = async () => {
-  //     try {
-  //       setLoading(true);
-  //       const res = await fetch(
-  //         `https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`
-  //       );
-  //       const jsondata = await res.json();
-  //       setData(jsondata);
-  //     } catch (error) {
-  //       console.error(error);
-  //     } finally {
-  //       setTimeout(() => {
-  //         setLoading(false);
-  //       }, 1000);
-  //     }
-  //   };
-
-  //   fetchDataName();
-  // }, [input]);
-
   const { setInput, loading, mealData } = useMeal();
 
   return (
@@ -49,7 +24,7 @@ const Meals = () => {
         {loading ? (
           <Loading count={25} />
         ) : (
-          mealData.meals?.map((meal: Meal) => (
+          mealData?.meals?.map((meal: Meal) => (
             <Link key={meal.idMeal} href={`meal/${meal.strMeal}`}>
               <Cardsm>
                 <div className="flex">

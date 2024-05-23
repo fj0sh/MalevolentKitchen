@@ -1,4 +1,4 @@
-type Meal = {
+interface Meal {
     strMeasure: string;
     idMeal: string;
     strMeal: string;
@@ -11,5 +11,8 @@ type Meal = {
     strArea:string
   };
 
+  interface MealResponse {
+    meals: Meal[];
+  }
 
-  export default Meal;
+  export type {Meal, MealResponse};

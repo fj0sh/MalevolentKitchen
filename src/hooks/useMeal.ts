@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { getMeal } from '@/services/getMeal';
-import Meal from '@/constants';
+import { MealResponse} from '@/constants';
 
 const useMeal = () => {
 const [input, setInput] = useState<any>("a");
-  const [mealData, setMealData] = useState<any>({});
+  const [mealData, setMealData] = useState<MealResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -21,11 +21,13 @@ const [input, setInput] = useState<any>("a");
         }, 1000);
       }
     };
-
     fetchDataName();
   }, [input]);
 
-  console.log(mealData);
+  useEffect(() => {
+    console.log(mealData);
+  }, [mealData]);
+  
   
     return{setInput, loading, mealData};
 }

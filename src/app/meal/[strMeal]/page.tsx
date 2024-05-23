@@ -2,7 +2,7 @@
 
 import { MealCard } from "@/components";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import Meal from "@/constants";
+import { Meal } from "@/constants";
 import Link from "next/link";
 import useMeal from "@/hooks/useMeal";
 
@@ -27,9 +27,11 @@ const Mealid = ({ params }: { params: { strMeal: string } }) => {
   //   fetchDataName();
   // }, []);
 
-  // const { setInput, loading, mealData } = useMeal();
+  const { setInput, mealData } = useMeal();
 
-  setData(params);
+  useEffect(() => {
+    console.log(mealData);
+  }, []);
 
   return (
     <>

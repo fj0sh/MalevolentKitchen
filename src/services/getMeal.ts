@@ -1,5 +1,5 @@
 import axios from 'axios'
-import Meal from '@/constants';
+import {Meal} from '@/constants';
 
 const getMeal = async(input:Meal) => {
     try {
