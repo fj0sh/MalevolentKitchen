@@ -2,22 +2,33 @@
 
 import { Button, Cardsm, Loading } from "@/components";
 import Link from "next/link";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Meal } from "@/constants";
 import useMeal from "@/hooks/useMeal";
+import Image from "next/image";
+import { title } from "process";
 
 const Meals = () => {
-  const { setInput, loading, mealData } = useMeal();
+  const { setInput, loading, mealData, setSubmit } = useMeal();
 
   return (
     <>
       <div className="flex justify-end mx-10 gap-10 my-5">
+        <select name="" id="">
+          <option value="">Area</option>
+          <option value="">Ingredient</option>
+          <option value="">Category</option>
+        </select>
         <input
-          className="bg-slate-400 rounded-lg px-2"
+          className="bg-slate-400 rounded-lg px-2 border border-black h-[50px] max-w-[500px] w-[500px] min-w-[250px] text-md"
           type="text"
+          placeholder="Search......"
           onChange={(e) => setInput(e.target.value)}
         />
-        <Button name="Random" className="p-1 rounded-md border border-2-" />
+        <Button
+          name="Search"
+          onClick={() => setSubmit((prev) => !prev)}
+        ></Button>
       </div>
 
       <div className="grid grid-cols-4 gap-2 mx-[25px] sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 smartphone:grid-cols-1">
@@ -29,10 +40,12 @@ const Meals = () => {
               <Cardsm>
                 <div className="flex">
                   <div className="mx-[10px]">
-                    <img
+                    <Image
                       src={meal.strMealThumb}
-                      alt="meal.jpg"
+                      alt={`${meal.strMeal}.jpg`}
                       className="w-[75px] h-[75px] rounded-full hover:w-[100px] hover:h-[100px] hover:ease-in duration-300 border border-black"
+                      width={75}
+                      height={75}
                     />
                   </div>
 

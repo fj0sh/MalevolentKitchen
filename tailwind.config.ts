@@ -7,6 +7,12 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors:{
+      "brown-100": "#F8F4E1",
+      "brown-200": "#AF8F6F",
+      "brown-300": "#74512D",
+      "brown-400": "#543310",
+    },
     screens:{
       'smartphone': '360px',
 

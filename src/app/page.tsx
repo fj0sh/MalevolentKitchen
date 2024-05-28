@@ -8,7 +8,12 @@ const Home = () => {
 
   router.push("/meal");
 
-  return <div> </div>;
+  return (
+    <div>
+      <div></div>
+      <div></div>
+    </div>
+  );
 };
 
 export default Home;
