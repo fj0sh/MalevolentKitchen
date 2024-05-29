@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getMeal } from "@/services/getMeal";
 import { MealResponse } from "@/constants";
+import axios from "axios";
+
+const request = axios.create({ baseURL: process.env.NEXT_PUBLIC_URL });
 
 const useMeal = () => {
   const [input, setInput] = useState<any>("a");
@@ -8,34 +10,24 @@ const useMeal = () => {
   const [mealData, setMealData] = useState<MealResponse | null>(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchDataName = async () => {
+  const fetchMeal = async () => {
+    try {
       setLoading(true);
-      try {
-        const res = await getMeal(input);
-        setMealData(res);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setTimeout(() => {
-          setLoading(false);
-        }, 500);
-      }
-    };
-    console.log("fetch");
-
-    fetchDataName();
-  }, [submit]);
-
-  useEffect(() => {
-    console.log(mealData);
-  }, [mealData, submit]);
-
-  const toggleSubmit = () => {
-    setSubmit((prev) => !prev);
+      const res = await request.get(`search.php?s=${input}`);
+      setMealData(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
   };
 
-  return { setInput, loading, mealData, setSubmit, toggleSubmit };
+  useEffect(() => {
+    fetchMeal();
+  }, [input]);
+
+  console.log(mealData);
+
+  return { setInput, loading, mealData, setSubmit, request };
 };
 
 export default useMeal;
