@@ -2,15 +2,16 @@
 
 import { Button, Cardsm, Loading } from "@/components";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Meal } from "@/constants";
 import useMeal from "@/hooks/useMeal";
 import Image from "next/image";
-import { title } from "process";
 import { useRouter } from "next/navigation";
 
 const Meals = () => {
   const { setInput, loading, mealData, setSubmit } = useMeal();
+
+
   const router = useRouter();
 
   return (

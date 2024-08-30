@@ -18,8 +18,8 @@ const FeaturedCard = (props: Props) => {
   return (
     <>
       <div className="bg-white flex flex-col items-center">
-        <div key={id} className="w-[20%] h-[20%]">
-          <h1>Featured Dish</h1>
+        <div key={id}>
+          <h1 className="text-center">Featured Dish</h1>
           <Image
             src={image}
             height={200}
@@ -28,7 +28,7 @@ const FeaturedCard = (props: Props) => {
             priority
           ></Image>
         </div>
-        <div className="">
+        <div className="text-center">
           <p className="font-bold">{name}</p>
           <p>
             <span>Category: </span> {category}
