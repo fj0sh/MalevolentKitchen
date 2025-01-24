@@ -39,7 +39,7 @@ const Mealid = ({ params }: { params: { strMeal: string } }) => {
                   <div className="">
                     <ul>
                       {Array.from({ length: 20 }, (_, index) => index + 1).map(
-                        (index) => (
+                        (index) => ( 
                           <li key={index} className="mb-[10px]">
                             {meal[`strIngredient${index}` as keyof Meal]}{" "}
                             {meal[`strMeasure${index}` as keyof Meal]}
