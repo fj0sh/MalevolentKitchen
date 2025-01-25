@@ -1,29 +1,22 @@
-import React from 'react'
-import Button from '../Button'
-import { useRouter } from 'next/navigation'
-import useMeal from '@/hooks/useMeal'
+import React from "react";
+import Link from "next/link";
 
-interface Props {
-    data?: string
-}
+const Navbar = () => {
+  return (
+    <div className="fixed top-0 left-0 w-full z-[100] flex justify-between items-center text-[18px] font-semibold p-2 bg-slate-500 h-[4rem]">
+      <div>
+        <p>LET HIM COOK!</p>
+      </div>
+      <div className="flex gap-5">
+        <Link href={"/"} className="">
+          Home
+        </Link>
+        <Link href={"/meal"} className="">
+          Browse
+        </Link>
+      </div>
+    </div>
+  );
+};
 
-const Navbar = (props: Props) => {
-
-    const { setInput } = useMeal()
-
-    const router = useRouter()
-
-    return (
-        <div className="flex justify-end mx-10 gap-10 my-5">
-            <input
-                className="bg-slate-400 rounded-lg px-2 border border-black h-[50px] max-w-[500px] w-[500px] min-w-[250px] text-md"
-                type="text"
-                placeholder="Search......"
-                onChange={(e) => setInput(e.target.value)}
-            />
-            <Button name="Search" onClick={() => router.push("/test")}></Button>
-        </div>
-    )
-}
-
-export default Navbar
+export default Navbar;
