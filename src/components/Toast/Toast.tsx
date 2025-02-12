@@ -1,5 +1,5 @@
 import React from "react";
-import { toast } from "react-toastify";
+import { toast, Zoom } from "react-toastify";
 import Avatar from "../Avatar/Avatar";
 
 interface Props {
@@ -12,6 +12,7 @@ const Toast: React.FC<Props> = ({ message }) => {
     hideProgressBar: true,
     position: "top-center",
     autoClose: 5000,
+    transition: Zoom,
   });
 
   return null;
