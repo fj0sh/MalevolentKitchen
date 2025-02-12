@@ -3,14 +3,19 @@ import { Meal } from "@/constants";
 import useRandomMeal from "@/hooks/useRandomMeal";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HomeCard from "../Cards/HomeCard";
 import Titles from "../Texts/Titles";
+import Toast from "../Toast/Toast";
 
 const Home = () => {
   const [toggleExpanded, setToggleExpanded] = useState(false);
   const { randomMeal } = useRandomMeal();
   let featuredDish = randomMeal?.meals[0];
+
+  useEffect(() => {
+    Toast({ message: "Domain Expansion: Malevolent Kitchen!!!" });
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -24,12 +29,12 @@ const Home = () => {
           Featured
         </Link> */}
         {/* <p className=" justify-self-center self-center ">asdasdas</p> */}
-        <Image
+        {/* <Image
           src="/let_him_cook.jpg"
           alt="let_him_cook.jpg"
           layout="fill"
           objectFit="cover"
-        />
+        /> */}
       </div>
       <div
         id="randMeal"
@@ -43,10 +48,7 @@ const Home = () => {
                 <Image
                   src={featuredDish?.strMealThumb}
                   alt={featuredDish?.strMeal}
-                  // width={200}
-                  // height={200}
                   layout="fill"
-                  // objectFit="cover"
                   className="rounded-lg"
                 />
               </div>
