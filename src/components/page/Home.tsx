@@ -96,65 +96,6 @@ const Home = () => {
         <div className="hover:bg-gray-700 hover:-translate-y-3"></div>
         <div className="hover:bg-gray-700 hover:-translate-y-3"></div>
       </div>
-      {/* <div
-        id="randMeal"
-        className="flex flex-col items-center h-full gap-3 p-3"
-      >
-        <p>Featured Meal</p>
-        <div className="flex gap-6 w-full">
-          {featuredDish && (
-            <div className="border w-[20%] h-[15rem] flex flex-col rounded-lg shadow-lg p-2">
-              <div className="relative w-full h-full">
-                <Image
-                  src={featuredDish?.strMealThumb}
-                  alt={featuredDish?.strMeal}
-                  // width={200}
-                  // height={200}
-                  layout="fill"
-                  // objectFit="cover"
-                  // className="w-full h-full"
-                />
-              </div>
-              <p className="w-full text-center py-2">{featuredDish.strMeal}</p>
-            </div>
-          )}
-          <div
-            className={`border w-[80%] ${
-              toggleExpanded ? "h-fit" : "h-[15rem]"
-            } rounded-lg shadow-lg flex flex-col p-3 `}
-          >
-            <div className="flex overflow-hidden truncate">
-              <div className="w-[25%] h-full">
-                <ul>
-                  {featuredDish &&
-                    Array.from(
-                      { length: toggleExpanded ? 20 : 5 },
-                      (_, index) => index + 1
-                    ).map((index) => (
-                      <li key={index} className="mb-[10px]">
-                        {featuredDish[`strIngredient${index}` as keyof Meal]}{" "}
-                        {featuredDish[`strMeasure${index}` as keyof Meal]}
-                      </li>
-                    ))}
-                </ul>
-              </div>
-
-              <div className="w-[75%] h-full relative break-words">
-                <p className="text-wrap">{featuredDish?.strInstructions}</p>
-              </div>
-            </div>
-
-            <div className="w-full h-fit flex justify-center py-3">
-              <button
-                className={`font-semibold text-zinc-600 hover:text-zinc-800 `}
-                onClick={() => setToggleExpanded(!toggleExpanded)}
-              >
-                See More
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 };
