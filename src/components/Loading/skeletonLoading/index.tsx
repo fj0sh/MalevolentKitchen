@@ -13,7 +13,7 @@ const Loading = ({ count }: SkeletonProps) => {
     skeletons.push(
       <div
         key={i}
-        className=" bg-gray-200 h-20 mb-4 rounded animate-pulse"
+        className=" bg-gray-200 h-20 mb-4 rounded-sm animate-pulse"
       ></div>
     );
   }
