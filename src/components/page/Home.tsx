@@ -29,12 +29,12 @@ const Home = () => {
           Featured
         </Link> */}
         {/* <p className=" justify-self-center self-center ">asdasdas</p> */}
-        {/* <Image
+        <Image
           src="/let_him_cook.jpg"
           alt="let_him_cook.jpg"
           layout="fill"
           objectFit="cover"
-        /> */}
+        />
       </div>
       <div
         id="randMeal"
