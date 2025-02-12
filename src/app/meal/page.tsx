@@ -2,12 +2,10 @@
 
 import { Button, Cardsm, Loading } from "@/components";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Meal } from "@/constants";
 import useMeal from "@/hooks/useMeal";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Avatar from "@/components/Avatar/Avatar";
 import Toast from "@/components/Toast/Toast";
 
 const Meals = () => {

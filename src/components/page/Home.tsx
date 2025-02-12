@@ -38,10 +38,10 @@ const Home = () => {
       </div>
       <div
         id="randMeal"
-        className="flex flex-col items-center h-full gap-3 p-3 mx-[25px]"
+        className="flex flex-col items-center h-full gap-3 p-3 lg:mx-[15rem] md:mx-[5rem]"
       >
         <Titles text="Hollup Let Him Cook.." />
-        <div className="flex gap-6 w-full lg:flex-row md:flex-row sm:flex-col">
+        <div className="flex gap-6 w-full lg:flex-row md:flex-row sm:flex-col ">
           {featuredDish && (
             <div className="border lg:w-[35%] sm:w-full h-[20rem] flex flex-col rounded-lg shadow-lg p-3">
               <div className="relative w-full h-full">
@@ -97,9 +97,9 @@ const Home = () => {
 
       <Titles
         text="Why One Should Cook?"
-        className="w-full text-center my-[25px]"
+        className="w-full text-center my-[20px]"
       />
-      <div className="h-[80vh] grid sm:grid-cols-2 lg:grid-cols-4 lg:py-[10rem] lg:gap-6 gap-3 p-6 *:p-3 *:border *:rounded-lg *:shadow-md *:transition-all *:duration-1000">
+      <div className="h-[80vh] lg:mx-[15rem] md:mx-[5rem] grid sm:grid-cols-2 lg:grid-cols-4 lg:pb-[10rem] lg:gap-6 gap-3 p-6 *:p-3 *:border *:rounded-lg *:shadow-md *:transition-all *:duration-1000">
         <HomeCard
           title="Nurturing Relationship"
           content="Cooking for others is a way to show love and care, strengthening bonds with family and friends through shared meals and experiences."
