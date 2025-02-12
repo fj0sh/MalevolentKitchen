@@ -4,6 +4,8 @@ import useRandomMeal from "@/hooks/useRandomMeal";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import HomeCard from "../Cards/HomeCard";
+import Titles from "../Texts/Titles";
 
 const Home = () => {
   const [toggleExpanded, setToggleExpanded] = useState(false);
@@ -22,21 +24,21 @@ const Home = () => {
           Featured
         </Link> */}
         {/* <p className=" justify-self-center self-center ">asdasdas</p> */}
-        {/* <Image
+        <Image
           src="/let_him_cook.jpg"
           alt="let_him_cook.jpg"
           layout="fill"
           objectFit="cover"
-        /> */}
+        />
       </div>
       <div
         id="randMeal"
-        className="flex flex-col items-center h-full gap-3 p-3"
+        className="flex flex-col items-center h-full gap-3 p-3 mx-[25px]"
       >
-        <p className="font-semibold text-[20px]">Hollup... Cook this</p>
-        <div className="flex gap-6 w-full">
+        <Titles text="Hollup Let Him Cook.." />
+        <div className="flex gap-6 w-full lg:flex-row md:flex-row sm:flex-col">
           {featuredDish && (
-            <div className="border w-[35%] h-[20rem] flex flex-col rounded-lg shadow-lg p-2">
+            <div className="border lg:w-[35%] sm:w-full h-[20rem] flex flex-col rounded-lg shadow-lg p-3">
               <div className="relative w-full h-full">
                 <Image
                   src={featuredDish?.strMealThumb}
@@ -45,20 +47,20 @@ const Home = () => {
                   // height={200}
                   layout="fill"
                   // objectFit="cover"
-                  // className="w-full h-full"
+                  className="rounded-lg"
                 />
               </div>
               <p className="w-full text-center py-2">{featuredDish.strMeal}</p>
             </div>
           )}
           <div
-            className={`border w-[80%] ${
+            className={`border lg:w-[80%] sm:w-full ${
               toggleExpanded ? "h-fit" : "h-[20rem]"
             } rounded-lg shadow-lg flex flex-col p-3 `}
           >
-            <div className="flex overflow-hidden truncate gap-3">
+            <div className="flex overflow-hidden truncate gap-8 h-full">
               <div className="w-[25%] h-full">
-                <ol className=" text-wrap">
+                <ol className=" text-wrap border-r h-fit p-3 border-black">
                   {featuredDish &&
                     Array.from(
                       { length: toggleExpanded ? 20 : 5 },
@@ -90,11 +92,28 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <Titles
+        text="Why One Should Cook?"
+        className="w-full text-center my-[25px]"
+      />
       <div className="h-[80vh] grid sm:grid-cols-2 lg:grid-cols-4 lg:py-[10rem] lg:gap-6 gap-3 p-6 *:p-3 *:border *:rounded-lg *:shadow-md *:transition-all *:duration-1000">
-        <div className="hover:bg-gray-700 hover:-translate-y-3"></div>
-        <div className="hover:bg-gray-700 hover:-translate-y-3"></div>
-        <div className="hover:bg-gray-700 hover:-translate-y-3"></div>
-        <div className="hover:bg-gray-700 hover:-translate-y-3"></div>
+        <HomeCard
+          title="Nurturing Relationship"
+          content="Cooking for others is a way to show love and care, strengthening bonds with family and friends through shared meals and experiences."
+        />
+        <HomeCard
+          title="Mindfulness and Relaxation"
+          content="The process of cooking can be meditative and stress-relieving, allowing you to focus on the present moment and enjoy the creative process."
+        />
+        <HomeCard
+          title="Cultural Connection"
+          content="Preparing traditional recipes helps preserve cultural heritage and allows you to explore and appreciate different cuisines and traditions"
+        />
+        <HomeCard
+          title="Sustainability"
+          content="Cooking at home enables you to make environmentally conscious choices, such as using local and seasonal ingredients, reducing food waste, and minimizing packaging."
+        />
       </div>
     </div>
   );

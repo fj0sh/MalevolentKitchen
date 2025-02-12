@@ -16,7 +16,7 @@ const Cardsm = (props: Props) => {
   const { image, name, category } = props;
 
   return (
-    <div className="border shadow-md rounded-lg p-5  mt-15 max-h-[200px] hover:border-black">
+    <div className="border shadow-md rounded-lg p-5 max-h-[200px] hover:border-black">
       <div className="flex">
         <div className="mx-[10px]">
           <Image
