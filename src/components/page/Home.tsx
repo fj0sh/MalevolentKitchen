@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex h-[30vh] bg-slate-400 w-full relative">
+      <div className="flex h-[50vh] bg-slate-400 w-full relative">
         <div className="w-full h-full bg-slate-0 absolute top-0 left-0 -z-50"></div>
 
         {/* <Link
@@ -38,12 +38,12 @@ const Home = () => {
       </div>
       <div
         id="randMeal"
-        className="flex flex-col items-center h-full gap-3 p-3 lg:mx-[15rem] md:mx-[5rem]"
+        className="flex flex-col items-center h-full gap-3 p-3 lg:mx-[15rem] md:mx-[2rem] sm:mx-[1rem]"
       >
         <Titles text="Hollup Let Him Cook.." />
         <div className="flex gap-6 w-full lg:flex-row md:flex-row sm:flex-col ">
           {featuredDish && (
-            <div className="border lg:w-[35%] sm:w-full h-[20rem] flex flex-col rounded-lg shadow-lg p-3">
+            <div className="border lg:w-[35%] md:w-[40%] sm:w-full h-[20rem] flex flex-col rounded-lg shadow-lg p-3">
               <div className="relative w-full h-full">
                 <Image
                   src={featuredDish?.strMealThumb}
@@ -56,12 +56,12 @@ const Home = () => {
             </div>
           )}
           <div
-            className={`border lg:w-[80%] sm:w-full ${
+            className={`border lg:w-[80%] md:w-[60%] sm:w-full ${
               toggleExpanded ? "h-fit" : "h-[20rem]"
             } rounded-lg shadow-lg flex flex-col p-3 `}
           >
             <div className="flex overflow-hidden truncate gap-8 h-full">
-              <div className="w-[25%] h-full">
+              <div className="w-[30%] h-full">
                 <ol className=" text-wrap border-r h-fit p-3 border-black">
                   {featuredDish &&
                     Array.from(
@@ -76,7 +76,7 @@ const Home = () => {
                 </ol>
               </div>
 
-              <div className="w-[75%] h-full relative break-words">
+              <div className="w-[70%] h-full relative break-words">
                 <p className="text-wrap leading-[23px] tracking-wider">
                   {featuredDish?.strInstructions}
                 </p>
@@ -99,7 +99,7 @@ const Home = () => {
         text="Why One Should Cook?"
         className="w-full text-center my-[20px]"
       />
-      <div className="h-[80vh] lg:mx-[15rem] md:mx-[5rem] grid sm:grid-cols-2 lg:grid-cols-4 lg:pb-[10rem] lg:gap-6 gap-3 p-6 *:p-3 *:border *:rounded-lg *:shadow-md *:transition-all *:duration-1000">
+      <div className="lg:mx-[15rem] md:mx-[2rem] sm:[1rem] grid sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-4 lg:pb-[10rem] lg:gap-6 gap-3 p-6 *:p-3 *:border *:rounded-lg *:shadow-md *:transition-all *:duration-1000">
         <HomeCard
           title="Nurturing Relationship"
           content="Cooking for others is a way to show love and care, strengthening bonds with family and friends through shared meals and experiences."
